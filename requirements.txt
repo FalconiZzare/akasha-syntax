@@ -40,3 +40,8 @@ urllib3==2.3.0
 uvicorn==0.34.0
 xxhash==3.5.0
 yarl==1.18.3
+
+python-dotenv~=1.0.1
+ollama~=0.4.7
+langchain~=0.3.18
+langchain-community~=0.3.17
