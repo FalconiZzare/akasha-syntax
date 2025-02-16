@@ -18,3 +18,5 @@ pip install -r requirements.txt
 Finally run [`main.py`] to run the pipeline.
 
 Update the datasets in given formats to enrich the knowledge base.
+
+If your GPU supports CUDA, then make sure to download and install CUDA Toolkits.

@@ -16,7 +16,7 @@ def generate_response_local(query, context_chunks):
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user",
-         "content": f"Use ONLY the following context to answer the question:\n\nContext:\n{context}\n\nQuestion: {query}\n\nAnswer:"}
+         "content": f"Use ONLY the following context to answer the question:\n\nContext:\n{context}\n\nQuestion: {query}"}
     ]
 
     # Generate the response using Ollama
