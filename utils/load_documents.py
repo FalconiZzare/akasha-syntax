@@ -1,7 +1,9 @@
 import os
+from prints.print_green import print_green
 
 
 def load_documents(directory):
+    print_green("Loading documents...")
     documents = []
 
     for root, _, files in os.walk(directory):
