@@ -30,7 +30,7 @@ def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, 
         model_name,
         torch_dtype=torch.float16,
         device_map="auto",
-        # quantization_config=quantization_config,
+        quantization_config=quantization_config,
         trust_remote_code=True
     ).eval()
     model = torch.compile(model)
