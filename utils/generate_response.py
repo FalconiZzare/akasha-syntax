@@ -12,7 +12,7 @@ models = [
 ]
 
 
-def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, model_index=3):
+def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, model_index=0):
     similarity_scores = calculate_cosine_similarity(query, context_chunks)
     count_above_threshold = sum(score >= threshold for score in similarity_scores)
     percentage_above_threshold = (count_above_threshold / len(similarity_scores)) * 100
@@ -29,8 +29,8 @@ def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, 
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         torch_dtype=torch.float16,
-        # device_map="auto",
-        quantization_config=quantization_config,
+        device_map="auto",
+        # quantization_config=quantization_config,
         trust_remote_code=True
     ).eval()
     model = torch.compile(model)
@@ -40,7 +40,7 @@ def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, 
     context = "\n".join(context_chunks)
     messages = [
         {"role": "user",
-         "content": f"<think>\nUse the following context to answer the question:\n\nContext:\n{context}\n\nQuestion: {query}\n\nAnswer:"}
+         "content": f"Use ONLY the following context to answer the question:\n\nContext:\n{context}\n\nQuestion: {query}\n\nAnswer:"}
     ]
 
     text = tokenizer.apply_chat_template(
@@ -60,11 +60,11 @@ def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, 
     generated_ids = model.generate(
         model_inputs.input_ids,
         attention_mask=model_inputs.attention_mask,
-        max_new_tokens=256,
-        do_sample=True,
-        temperature=0.7,
-        top_k=50,
-        top_p=0.9,
+        max_new_tokens=512,
+        # do_sample=True,
+        # temperature=0.7,
+        # top_k=50,
+        # top_p=0.9,
         num_return_sequences=1,
         pad_token_id=tokenizer.eos_token_id
     )

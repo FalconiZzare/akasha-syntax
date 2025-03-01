@@ -1,0 +1,7 @@
+Unknown quantization type, got fp8 is a value error and happens because DeepSeek R1 doesn't still support transformers.
+
+The transformer library doesn't support the quantization method DeepSeek used for their model.
+
+Huggingface is working on a PR [https://github.com/huggingface/transformers/pull/35926] to officially support FP8 quantization type.
+
+To avoid Unknown quantization type, got fp8 error, either wait for official transformer support by huggingface or change the quantization type in transformer config.

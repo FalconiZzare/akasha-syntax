@@ -24,13 +24,13 @@ def generate_response_local(query, context_chunks, threshold=0.5, similarity_rat
 
     messages = [
         {"role": "user",
-         "content": f"Use ONLY the following context to answer the question:\n\nContext:\n{context}\n\nQuestion: {query}"}
+         "content": f"<think>\nUse ONLY the following context to answer the question:\n\nContext:\n{context}\n\nQuestion: {query}"}
     ]
 
     # Generate the response using Ollama
     response = ollama.chat(
         model=model_name,
-        messages=messages,
+        messages=messages
     )
 
     response_content = response['message']['content']
@@ -38,11 +38,6 @@ def generate_response_local(query, context_chunks, threshold=0.5, similarity_rat
     response_content = re.sub(r'<think>.*?</think>', '', response_content, flags=re.DOTALL).strip()
 
     # Look for "Answer:" or "**Answer**" and extract the part after it
-    match = re.search(r'(?:\*\*Answer\*\*|Answer:)\s*(.*)', response_content, re.DOTALL)
+    match = re.search(r'(?:\*\*Answer\*\*|Answer:|\*\*\*\*)\s*(.*)', response_content, re.DOTALL)
 
-    if match:
-        return match.group(1).strip()
-
-    # If no "Answer:" or "**Answer**" is found, return the last paragraph
-    paragraphs = response_content.split("\n\n")
-    return paragraphs[-1].strip() if paragraphs else response_content.strip()
+    return match.group(1).strip() if match else response_content.strip()
