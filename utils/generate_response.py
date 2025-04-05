@@ -11,7 +11,26 @@ models = [
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
 ]
 
-def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, model_index=0):
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+model_name = models[1]
+
+quantization_config = BitsAndBytesConfig(
+        load_in_8bit=True,  # Use 8-bit quantization
+        bnb_8bit_compute_dtype=torch.float16
+    )
+
+model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        torch_dtype=torch.float16,
+        device_map="auto",
+        quantization_config=quantization_config,
+        trust_remote_code=True
+    ).eval()
+model = torch.compile(model)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20):
     similarity_scores = calculate_cosine_similarity(query, context_chunks)
     count_above_threshold = sum(score >= threshold for score in similarity_scores)
     percentage_above_threshold = (count_above_threshold / len(similarity_scores)) * 100
@@ -19,21 +38,7 @@ def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, 
     if percentage_above_threshold <= similarity_rate:
         return "⚠️ Sorry, I couldn't find relevant information to answer your question."
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    model_name = models[model_index]
-    quantization_config = BitsAndBytesConfig(
-        load_in_8bit=True,  # Use 8-bit quantization
-        bnb_8bit_compute_dtype=torch.float16
-    )
-    model = AutoModelForCausalLM.from_pretrained(
-        model_name,
-        torch_dtype=torch.float16,
-        device_map="auto",
-        quantization_config=quantization_config,
-        trust_remote_code=True
-    ).eval()
-    model = torch.compile(model)
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    global model, tokenizer
 
     # Format the prompt with query and context
     context = "\n".join(context_chunks)
@@ -64,6 +69,8 @@ def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, 
         # temperature=0.7,
         # top_k=50,
         # top_p=0.9,
+        use_cache=True,
+        num_beams=1,
         num_return_sequences=1,
         pad_token_id=tokenizer.eos_token_id
     )
@@ -72,5 +79,7 @@ def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, 
     ]
 
     response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+
+    torch.cuda.empty_cache()
 
     return response
