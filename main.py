@@ -56,7 +56,7 @@ async def ask_question(query: str = Form(...)):
         )
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run(app, host="0.0.0.0", port=3000, reload=True)
 
 # Qwen
 # response = generate_response(user_input, relevant_chunks)
