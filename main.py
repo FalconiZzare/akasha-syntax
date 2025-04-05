@@ -2,7 +2,6 @@ from contextlib import asynccontextmanager
 
 from prints.print_green import print_green, print_green_text
 from prints.print_red import print_red
-from utils.calculate_cosine_similarity import calculate_cosine_similarity
 from utils.generate_response import generate_response
 from utils.generate_response_local import generate_response_local
 from utils.index_documents import setup_chromadb, query_retriever
