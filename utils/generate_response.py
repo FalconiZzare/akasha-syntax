@@ -11,7 +11,6 @@ models = [
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
 ]
 
-
 def generate_response(query, context_chunks, threshold=0.5, similarity_rate=20, model_index=0):
     similarity_scores = calculate_cosine_similarity(query, context_chunks)
     count_above_threshold = sum(score >= threshold for score in similarity_scores)

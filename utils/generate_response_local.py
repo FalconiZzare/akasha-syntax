@@ -30,14 +30,24 @@ def generate_response_local(query, context_chunks, threshold=0.5, similarity_rat
     # Generate the response using Ollama
     response = ollama.chat(
         model=model_name,
-        messages=messages
+        messages=messages,
+        stream=True
     )
 
-    response_content = response['message']['content']
-    # Remove the <think>...</think> part
-    response_content = re.sub(r'<think>.*?</think>', '', response_content, flags=re.DOTALL).strip()
+    found_think_end = False  # Variable to track if </think> is found
+    for chunk in response:
+        if not found_think_end:
+            if "</think>" in str(chunk):
+                found_think_end = True
+            continue
 
-    # Look for "Answer:" or "**Answer**" and extract the part after it
-    match = re.search(r'(?:\*\*Answer\*\*|Answer:|\*\*\*\*)\s*(.*)', response_content, re.DOTALL)
+        print(chunk["message"]["content"], end="", flush=True)
 
-    return match.group(1).strip() if match else response_content.strip()
+    # response_content = response['message']['content']
+    # # Remove the <think>...</think> part
+    # response_content = re.sub(r'<think>.*?</think>', '', response_content, flags=re.DOTALL).strip()
+    #
+    # # Look for "Answer:" or "**Answer**" and extract the part after it
+    # match = re.search(r'(?:\*\*Answer\*\*|Answer:|\*\*\*\*)\s*(.*)', response_content, re.DOTALL)
+    #
+    # return match.group(1).strip() if match else response_content.strip()

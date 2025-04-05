@@ -23,20 +23,20 @@ from utils.index_documents import setup_chromadb, query_retriever
 user_input = "How to fix unknown quantization type, got fp8?"
 relevant_chunks = query_retriever(user_input)
 
-# Qwen
-response = generate_response(user_input, relevant_chunks)
-print_green_text(f"#query: {user_input}")
-print_green(" Qwen:")
-print(response)
-
-# DeepSeekDistillQwen
-response = generate_response(user_input, relevant_chunks, model_index=1)
-print_green_text(f"#query: {user_input}")
-print_green(" Qwen 2.5:")
-print(response)
+# # Qwen
+# response = generate_response(user_input, relevant_chunks)
+# print_green_text(f"#query: {user_input}")
+# print_green(" Qwen:")
+# print(response)
+#
+# # DeepSeekDistillQwen
+# response = generate_response(user_input, relevant_chunks, model_index=1)
+# print_green_text(f"#query: {user_input}")
+# print_green(" Qwen 2.5:")
+# print(response)
 
 # DeepSeek R1 7B
-response = generate_response_local(user_input, relevant_chunks)
 print_green_text(f"#query: {user_input}")
 print_green(" DeepSeek:")
-print(response)
+generate_response_local(user_input, relevant_chunks)
+
