@@ -1,16 +1,13 @@
-import os
-import shutil
-
-import chromadb
-from sentence_transformers import SentenceTransformer
-
-from utils.load_documents import load_documents
-from prints.print_green import print_green
-from prints.print_red import print_red
-from utils.text_splitter import text_splitter
-
-
 def setup_chromadb():
+    import os
+    import shutil
+    import chromadb
+    from utils.load_documents import load_documents
+    from utils.text_splitter import text_splitter
+    from utils.model_singleton import ModelSingleton
+    from prints.print_green import print_green
+    from prints.print_red import print_red
+
     docs = load_documents("datasets")
 
     print_green("Setting up ChromaDB...")
@@ -31,7 +28,7 @@ def setup_chromadb():
         print_red(f"Could not delete chroma db path: {e}")
 
     client = chromadb.PersistentClient(path="chroma_db")
-    text_embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+    model_instance = ModelSingleton.get_instance()
 
     # Delete existing collection
     try:
@@ -49,7 +46,7 @@ def setup_chromadb():
         chunks = text_splitter(doc)
 
         for j, chunk in enumerate(chunks):
-            embedding = text_embedding_model.encode(chunk)
+            embedding = model_instance.encode_text(chunk)
             collection.add(
                 ids=[f"doc_{i}_chunk_{j}"],
                 documents=[chunk],
@@ -62,8 +59,11 @@ def setup_chromadb():
 
 
 def query_retriever(query, top_k=3):
-    text_embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
-    query_embedding = text_embedding_model.encode(query).tolist()
+    import chromadb
+    from utils.model_singleton import ModelSingleton
+
+    model_instance = ModelSingleton.get_instance()
+    query_embedding = model_instance.encode_text(query).tolist()
 
     client = chromadb.PersistentClient(path="chroma_db")
     collection = client.get_collection(name="knowledge_base")
