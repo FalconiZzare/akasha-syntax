@@ -1,0 +1,6 @@
+.next
+node_modules
+.idea
+components/ui
+package-lock.json
+package.json
