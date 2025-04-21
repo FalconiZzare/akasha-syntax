@@ -1,8 +1,9 @@
 import React from "react";
+import { cn } from "@/lib/utils";
 
-const Sphere = () => {
+const Sphere = ({ className }) => {
   return (
-    <div className={"flex h-[150px] w-[450px] items-center justify-center"}>
+    <div className={cn("flex h-[150px] w-[450px] items-center justify-center", className)}>
       <div
         className={"pointer-events-none overflow-clip"}
         style={{
