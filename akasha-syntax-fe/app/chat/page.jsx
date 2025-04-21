@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Wrapper from "@/components/Wrapper";
 import { Send, CornerDownLeft, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import DotStream from "@/components/loaders/DotStream";
 const Page = () => {
   const [inputValue, setInputValue] = useState("");
   const [responses, setResponses] = useState([]);
+  const chatContainerRef = useRef(null);
 
   const { isPending, mutate, reset } = useMutation({
     mutationKey: ["chat"],
@@ -37,12 +38,20 @@ const Page = () => {
     }
   });
 
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [responses, isPending]);
+
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!inputValue.trim()) return;
 
     const newRes = [...responses];
     newRes.push({ text: inputValue, type: "query" });
@@ -56,7 +65,7 @@ const Page = () => {
     <Wrapper className={"mt-20"}>
       <div className="flex h-full items-start justify-center">
         <div className="h-full w-full overflow-hidden rounded-lg shadow-lg">
-          <div className="h-full overflow-y-auto px-4">
+          <div ref={chatContainerRef} className="h-full overflow-y-auto scroll-smooth px-4">
             <div className="mb-16 flex flex-col items-center justify-center">
               <div className={"flex items-center justify-center"}>
                 <Sphere className={"w-[250px]"} />
@@ -114,7 +123,7 @@ const Page = () => {
                     variant="ghost"
                     className="h-8 w-8 rounded-full"
                   >
-                    <LoaderCircle className="mt-1 animate-spin text-accent-foreground" />
+                    <LoaderCircle className="animate-spin text-accent-foreground" />
                   </Button>
                 ) : (
                   <Button

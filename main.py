@@ -16,7 +16,7 @@ async def lifespan(app: FastAPI):
     ModelSingleton.get_instance()
     print_green("Models loaded successfully!")
 
-    # setup_chromadb()
+    setup_chromadb()
     print_green("🚀 Server started")
 
     yield
