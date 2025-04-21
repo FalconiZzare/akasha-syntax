@@ -7,6 +7,7 @@ from prints.print_green import print_green, print_green_text
 from prints.print_red import print_red
 from utils.index_documents import setup_chromadb, query_retriever
 from utils.generate_response import generate_response
+from fastapi.middleware.cors import CORSMiddleware
 
 
 @asynccontextmanager
@@ -29,6 +30,13 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://localhost:3001", "https://akasha-syntax.vercel.app"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():

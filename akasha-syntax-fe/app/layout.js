@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Providers from "@/app/Providers";
 import Navbar from "@/components/Layout/Navbar";
+import { Toaster } from "@/components/ui/sonner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,13 +17,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} antialiased`}>
         <Providers>
           <div className={"grid min-h-dvh grid-rows-[1fr_auto]"}>
             <Navbar />
             {children}
           </div>
+          <Toaster position={"top-center"} richColor />
         </Providers>
       </body>
     </html>

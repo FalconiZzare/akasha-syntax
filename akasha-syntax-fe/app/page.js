@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <Wrapper className={"mt-20"}>
+    <Wrapper className={"mt-20 overflow-hidden"}>
       <div className={"relative flex h-full flex-col items-center justify-center"}>
         <StarBorder>
           <div className={"flex w-full items-center justify-between gap-4"}>
@@ -48,7 +48,7 @@ export default function Home() {
               >
                 <BotMessageSquare className={"mb-px"} size={26} />
               </div>
-              <p className={"text-xl font-normal"}>Try Akasha Syntax</p>
+              <p className={"text-xl font-normal tracking-wide"}>Try Akasha Syntax</p>
               <div className={"flex"}>
                 <ChevronRight />
                 <ChevronRight className={"-ml-4 text-foreground/70"} />
