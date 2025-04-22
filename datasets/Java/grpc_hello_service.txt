@@ -1,0 +1,18 @@
+// .proto file
+// syntax = "proto3";
+// service HelloService {
+//   rpc SayHello (HelloRequest) returns (HelloResponse);
+// }
+// message HelloRequest { string name = 1; }
+// message HelloResponse { string message = 1; }
+
+// Server implementation in Java
+public class HelloServiceImpl extends HelloServiceGrpc.HelloServiceImplBase {
+    @Override
+    public void sayHello(HelloRequest req, StreamObserver<HelloResponse> responseObserver) {
+        HelloResponse reply = HelloResponse.newBuilder().setMessage("Hello " + req.getName()).build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+}
+// This defines a gRPC service and implements it in Java.

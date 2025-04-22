@@ -1,0 +1,5 @@
+const person = { name: "Alice", age: 25 };
+const updated = { ...person, age: 26 };
+console.log(person); // unchanged
+console.log(updated);
+// This shows immutability by copying and updating an object without modifying the original.

@@ -1,0 +1,15 @@
+import * as R from 'ramda';
+
+const users = [
+    { name: "Alice", age: 22 },
+    { name: "Bob", age: 17 },
+    { name: "Eve", age: 32 }
+];
+
+const adults = R.pipe(
+    R.filter(R.propSatisfies(age => age >= 18, 'age')),
+    R.map(R.prop('name'))
+)(users);
+
+console.log(adults);
+// This uses Ramda to declaratively filter and transform a list of user data.

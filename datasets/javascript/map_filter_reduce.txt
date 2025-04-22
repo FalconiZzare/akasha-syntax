@@ -1,0 +1,6 @@
+const numbers = [1, 2, 3, 4, 5];
+const squared = numbers.map(n => n * n);
+const evens = squared.filter(n => n % 2 === 0);
+const sum = evens.reduce((acc, n) => acc + n, 0);
+console.log(sum);
+// This uses map, filter, and reduce to transform and aggregate data.

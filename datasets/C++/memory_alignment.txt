@@ -1,0 +1,7 @@
+#include <iostream>
+struct A { char x; int y; };
+int main() {
+    std::cout << "Size of struct A: " << sizeof(A) << std::endl;
+    return 0;
+}
+// Explains memory alignment and padding in structures.

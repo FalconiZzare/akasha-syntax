@@ -1,0 +1,11 @@
+#include <iostream>
+namespace myspace {
+    void display() {
+        std::cout << "Inside namespace" << std::endl;
+    }
+}
+int main() {
+    myspace::display();
+    return 0;
+}
+// Demonstrates the use of namespaces to avoid name conflicts.

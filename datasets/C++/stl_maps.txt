@@ -1,0 +1,12 @@
+#include <iostream>
+#include <map>
+int main() {
+    std::map<std::string, int> ages;
+    ages["Alice"] = 30;
+    ages["Bob"] = 25;
+    for (const auto& pair : ages) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+    return 0;
+}
+// Demonstrates using a map to store key-value pairs.

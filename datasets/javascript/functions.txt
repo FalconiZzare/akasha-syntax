@@ -1,0 +1,5 @@
+function greet(name) {
+    return "Hello, " + name;
+}
+console.log(greet("Bob"));
+// This defines a function that returns a greeting message.

@@ -1,0 +1,24 @@
+import java.lang.annotation.*;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@interface MyAnnotation {
+    String value();
+}
+
+class Annotated {
+    @MyAnnotation(value = "example")
+    public void display() {
+        System.out.println("Display method");
+    }
+}
+
+public class AnnotationDemo {
+    public static void main(String[] args) throws Exception {
+        Annotated obj = new Annotated();
+        obj.display();
+        MyAnnotation ann = obj.getClass().getMethod("display").getAnnotation(MyAnnotation.class);
+        System.out.println("Annotation value: " + ann.value());
+    }
+}
+// This defines and uses a custom annotation on a method and retrieves it via reflection.

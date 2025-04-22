@@ -1,0 +1,7 @@
+#include <stdio.h>
+inline int square(int x) { return x * x; }
+int main() {
+    printf("Square of 4 is %d\n", square(4));
+    return 0;
+}
+// Demonstrates an inline function (supported by some C compilers).

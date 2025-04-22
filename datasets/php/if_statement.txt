@@ -1,0 +1,9 @@
+<?php
+$score = 85;
+if ($score >= 60) {
+    echo "Passed";
+} else {
+    echo "Failed";
+}
+?>
+This code checks whether the score is greater than or equal to 60. If it is, it prints "Passed", otherwise "Failed".

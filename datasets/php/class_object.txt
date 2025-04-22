@@ -1,0 +1,14 @@
+<?php
+class Car {
+    public $color;
+    public function __construct($color) {
+        $this->color = $color;
+    }
+    public function getColor() {
+        return $this->color;
+    }
+}
+$myCar = new Car("Red");
+echo $myCar->getColor();
+?>
+A class `Car` is defined with a constructor and a method. An object is created and the method is used to get the color.

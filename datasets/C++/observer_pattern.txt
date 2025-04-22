@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+class Observer {
+public:
+    virtual void update(int value) = 0;
+};
+class Subject {
+    std::vector<Observer*> observers;
+    int state;
+public:
+    void attach(Observer* obs) { observers.push_back(obs); }
+    void setState(int value) {
+        state = value;
+        for (Observer* obs : observers) obs->update(state);
+    }
+};
+class ConcreteObserver : public Observer {
+public:
+    void update(int value) override {
+        std::cout << "State updated to: " << value << std::endl;
+    }
+};
+int main() {
+    Subject s;
+    ConcreteObserver o;
+    s.attach(&o);
+    s.setState(42);
+    return 0;
+}
+// Implements the Observer pattern where observers get notified of state changes.

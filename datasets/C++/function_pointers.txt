@@ -1,0 +1,10 @@
+#include <iostream>
+void greet() {
+    std::cout << "Hello from function pointer!" << std::endl;
+}
+int main() {
+    void (*funcPtr)() = greet;
+    funcPtr();
+    return 0;
+}
+// Demonstrates how to use a function pointer in C++.

@@ -1,0 +1,10 @@
+import java.util.Arrays;
+import java.util.List;
+
+public class LambdaExample {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Bob", "Alice", "Eve");
+        names.forEach(name -> System.out.println("Hello " + name));
+    }
+}
+// This uses a lambda expression to print greetings for each name.

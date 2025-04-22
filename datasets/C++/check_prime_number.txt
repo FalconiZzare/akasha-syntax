@@ -1,0 +1,14 @@
+Check Prime Number
+int num = 29, isPrime = 1;
+for(int i = 2; i <= num/2; i++) {
+    if(num % i == 0) {
+        isPrime = 0;
+        break;
+    }
+}
+if(isPrime)
+    printf("Prime");
+else
+    printf("Not Prime");
+Checks if a number is divisible by any number from 2 to half of itself. If yes, it's not a prime.
+math,conditions

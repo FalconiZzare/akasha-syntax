@@ -1,0 +1,11 @@
+<?php
+// app/Models/User.php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model {
+    protected $fillable = ['name', 'email'];
+}
+?>
+This Laravel model represents a `users` table and allows mass assignment of 'name' and 'email' fields.

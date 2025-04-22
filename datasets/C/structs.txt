@@ -1,0 +1,11 @@
+#include <stdio.h>
+struct Person {
+    char name[50];
+    int age;
+};
+int main() {
+    struct Person p = {"Alice", 30};
+    printf("Name: %s, Age: %d\n", p.name, p.age);
+    return 0;
+}
+// Demonstrates use of structs to group different types together.

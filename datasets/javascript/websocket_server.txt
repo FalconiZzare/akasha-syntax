@@ -1,0 +1,9 @@
+const WebSocket = require('ws');
+
+const server = new WebSocket.Server({ port: 8080 });
+
+server.on('connection', socket => {
+    socket.send('Hello from WebSocket server');
+    socket.on('message', message => console.log('Received:', message));
+});
+// This sets up a WebSocket server using the 'ws' package in Node.js.

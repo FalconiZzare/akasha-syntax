@@ -1,0 +1,5 @@
+<?php
+$person = array("name" => "John", "age" => 30);
+echo "Name: " . $person["name"] . ", Age: " . $person["age"];
+?>
+This is an associative array where keys are strings. It prints the name and age from the array.

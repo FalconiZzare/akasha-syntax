@@ -1,0 +1,6 @@
+<?php
+$file = fopen("example.txt", "w");
+fwrite($file, "Hello, file!");
+fclose($file);
+?>
+This code creates (or overwrites) a file named "example.txt", writes a string into it, and then closes the file to save changes.

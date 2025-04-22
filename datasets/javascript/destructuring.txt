@@ -1,0 +1,4 @@
+const person = { name: "Bob", age: 28 };
+const { name, age } = person;
+console.log(name, age);
+// This uses object destructuring to extract values from an object.

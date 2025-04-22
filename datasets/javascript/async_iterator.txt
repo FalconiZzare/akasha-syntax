@@ -1,0 +1,12 @@
+async function* asyncGen() {
+    yield "Hello";
+    await new Promise(r => setTimeout(r, 1000));
+    yield "World";
+}
+
+(async () => {
+    for await (let val of asyncGen()) {
+        console.log(val);
+    }
+})();
+// This defines and uses an asynchronous generator with for-await-of.

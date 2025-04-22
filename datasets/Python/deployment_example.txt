@@ -1,0 +1,9 @@
+# requirements.txt
+flask
+gunicorn
+
+# To deploy Flask app:
+# 1. Create a file app.py with Flask code
+# 2. Install dependencies: pip install -r requirements.txt
+# 3. Run with: gunicorn app:app
+# This provides basic instructions for deploying a Flask app using Gunicorn.

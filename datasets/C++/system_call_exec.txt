@@ -1,0 +1,8 @@
+#include <iostream>
+#include <unistd.h>
+int main() {
+    execl("/bin/ls", "ls", "-l", nullptr);
+    std::cerr << "Exec failed" << std::endl;
+    return 1;
+}
+// Uses the system-level exec call to replace the current process with 'ls'.

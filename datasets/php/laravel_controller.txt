@@ -1,0 +1,17 @@
+<?php
+// app/Http/Controllers/GreetController.php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class GreetController extends Controller {
+    public function greet($name) {
+        return "Hello, " . $name;
+    }
+}
+
+// web.php
+use App\Http\Controllers\GreetController;
+Route::get('/hello/{name}', [GreetController::class, 'greet']);
+?>
+This Laravel example defines a controller with a method that returns a greeting, and maps a route to that controller method.

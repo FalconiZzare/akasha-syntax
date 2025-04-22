@@ -1,0 +1,6 @@
+try {
+    throw new Error("Something went wrong");
+} catch (err) {
+    console.error(err.message);
+}
+// This throws and catches an error using try-catch.

@@ -1,0 +1,7 @@
+<?php
+$file = fopen("example.txt", "r");
+$content = fread($file, filesize("example.txt"));
+fclose($file);
+echo $content;
+?>
+This script reads the entire content of "example.txt" and prints it.

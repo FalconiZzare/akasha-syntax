@@ -1,0 +1,18 @@
+class Dog {
+    String name;
+    int age;
+
+    void bark() {
+        System.out.println(name + " says woof!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.name = "Buddy";
+        d.age = 3;
+        d.bark();
+    }
+}
+// This demonstrates object creation and method calling in Java.

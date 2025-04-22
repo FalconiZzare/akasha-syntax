@@ -1,0 +1,13 @@
+class Box {
+    constructor(value) {
+        this.value = value;
+    }
+
+    map(fn) {
+        return new Box(fn(this.value));
+    }
+}
+
+const result = new Box(3).map(x => x + 1).map(x => x * 2);
+console.log(result);
+// This implements a Functor pattern using a Box class with a map method.

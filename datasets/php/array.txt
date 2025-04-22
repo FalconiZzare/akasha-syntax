@@ -1,0 +1,7 @@
+<?php
+$fruits = array("Apple", "Banana", "Cherry");
+foreach ($fruits as $fruit) {
+    echo "$fruit\n";
+}
+?>
+An array of fruits is defined. The `foreach` loop iterates over each element and prints it.

@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main() {
+    int number = 10;
+    if (number > 0) {
+        printf("Positive number\n");
+    } else {
+        printf("Non-positive number\n");
+    }
+    return 0;
+}
+// Shows basic conditional execution using if-else.

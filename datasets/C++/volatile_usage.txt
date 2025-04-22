@@ -1,0 +1,10 @@
+#include <iostream>
+volatile int flag = 0;
+int main() {
+    while (flag == 0) {
+        // Waiting for flag to change
+    }
+    std::cout << "Flag changed!" << std::endl;
+    return 0;
+}
+// Shows use of volatile to prevent compiler optimization in multithreaded context.

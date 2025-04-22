@@ -1,0 +1,7 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    echo "Hello, $name";
+}
+?>
+This code handles form data sent via POST. It checks the request method and retrieves the 'name' field from the POST data.

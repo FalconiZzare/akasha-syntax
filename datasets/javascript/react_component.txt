@@ -1,0 +1,8 @@
+import React from 'react';
+
+function Greeting({ name }) {
+    return <h1>Hello, {name}</h1>;
+}
+
+export default Greeting;
+// This is a simple functional React component that takes a prop and renders a message.

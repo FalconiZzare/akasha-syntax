@@ -1,0 +1,4 @@
+<?php
+echo "Hello, world!";
+?>
+This simple PHP script outputs "Hello, world!" to the browser. The `echo` statement is used to send output to the screen.

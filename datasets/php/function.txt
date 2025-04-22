@@ -1,0 +1,7 @@
+<?php
+function greet($name) {
+    return "Hello, $name!";
+}
+echo greet("Bob");
+?>
+Here, a function `greet` is defined that takes a name as an argument and returns a greeting message. The function is then called with "Bob" as the argument.

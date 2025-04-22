@@ -1,0 +1,5 @@
+def greet(name):
+    return "Hello " + name
+
+print(greet("Alice"))
+# This defines a function that greets a user by name and prints the greeting.

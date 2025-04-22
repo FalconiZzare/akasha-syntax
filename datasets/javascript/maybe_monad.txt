@@ -1,0 +1,29 @@
+class Maybe {
+    constructor(value) {
+        this.value = value;
+    }
+
+    static of(value) {
+        return new Maybe(value);
+    }
+
+    isNothing() {
+        return this.value === null || this.value === undefined;
+    }
+
+    map(fn) {
+        return this.isNothing() ? this : Maybe.of(fn(this.value));
+    }
+
+    getOrElse(defaultValue) {
+        return this.isNothing() ? defaultValue : this.value;
+    }
+}
+
+const result = Maybe.of("hello")
+    .map(str => str.toUpperCase())
+    .map(str => str + " world")
+    .getOrElse("default");
+
+console.log(result);
+// This implements a simple Maybe monad for safe functional chaining.

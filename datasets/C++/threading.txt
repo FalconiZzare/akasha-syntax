@@ -1,0 +1,11 @@
+#include <iostream>
+#include <thread>
+void printMessage() {
+    std::cout << "Thread is running!" << std::endl;
+}
+int main() {
+    std::thread t(printMessage);
+    t.join();
+    return 0;
+}
+// Launches a thread to run a function concurrently.

@@ -1,0 +1,22 @@
+<?php
+// User.php
+class User extends Model {
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
+}
+
+// Post.php
+class Post extends Model {
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+}
+
+// Usage
+$user = User::find(1);
+foreach ($user->posts as $post) {
+    echo $post->title;
+}
+?>
+This example defines a one-to-many relationship between User and Post models in Laravel and fetches all posts for a given user.

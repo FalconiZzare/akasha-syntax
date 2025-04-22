@@ -1,0 +1,15 @@
+#include <iostream>
+#include <fstream>
+int main() {
+    std::ofstream outFile("example.txt");
+    outFile << "Writing to a file.";
+    outFile.close();
+    
+    std::ifstream inFile("example.txt");
+    std::string content;
+    std::getline(inFile, content);
+    std::cout << content << std::endl;
+    inFile.close();
+    return 0;
+}
+// Writes to and reads from a text file using file streams.

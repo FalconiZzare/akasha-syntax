@@ -1,0 +1,11 @@
+<?php
+// tests/ExampleTest.php
+use PHPUnit\Framework\TestCase;
+
+class ExampleTest extends TestCase {
+    public function testAddition() {
+        $this->assertEquals(4, 2 + 2);
+    }
+}
+?>
+This is a basic PHPUnit test class with a single test method that checks if 2 + 2 equals 4.

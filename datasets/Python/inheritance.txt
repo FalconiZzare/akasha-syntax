@@ -1,0 +1,11 @@
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+class Dog(Animal):
+    def speak(self):
+        print("Dog barks")
+
+d = Dog()
+d.speak()
+# This shows inheritance and method overriding in Python OOP.

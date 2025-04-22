@@ -1,0 +1,5 @@
+const text = "My email is test@example.com";
+const regex = /\S+@\S+\.\S+/;
+const found = text.match(regex);
+console.log(found[0]);
+// This uses a regular expression to find an email address in a string.

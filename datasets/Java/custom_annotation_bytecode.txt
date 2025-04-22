@@ -1,0 +1,25 @@
+import java.lang.annotation.*;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@interface MyLog {
+    String value() default "Executing";
+}
+
+public class AnnotatedExample {
+    @MyLog("Running main logic")
+    public void execute() {
+        System.out.println("Main logic executed.");
+    }
+
+    public static void main(String[] args) throws Exception {
+        AnnotatedExample obj = new AnnotatedExample();
+        for (var method : obj.getClass().getDeclaredMethods()) {
+            if (method.isAnnotationPresent(MyLog.class)) {
+                System.out.println(method.getAnnotation(MyLog.class).value());
+                method.invoke(obj);
+            }
+        }
+    }
+}
+// This defines a custom annotation and uses reflection to invoke and log annotated methods.

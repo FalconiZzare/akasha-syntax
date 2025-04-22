@@ -1,0 +1,8 @@
+Pointers and Arrays
+int arr[] = {1, 2, 3, 4};
+int* ptr = arr;
+for(int i = 0; i < 4; i++) {
+    printf("%d ", *(ptr + i));
+}
+Demonstrates pointer arithmetic to access array elements using a pointer instead of array indexing.
+pointers,array

@@ -1,0 +1,19 @@
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.*;
+
+@SpringBootApplication
+@RestController
+@RequestMapping("/product")
+public class ProductService {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ProductService.class, args);
+    }
+
+    @GetMapping("/{id}")
+    public String getProduct(@PathVariable int id) {
+        return "Product details for ID " + id;
+    }
+}
+// This represents a simple microservice using Spring Boot exposing REST endpoints.

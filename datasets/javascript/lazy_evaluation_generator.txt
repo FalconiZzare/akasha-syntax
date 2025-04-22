@@ -1,0 +1,9 @@
+function* infiniteNumbers() {
+    let i = 0;
+    while (true) yield i++;
+}
+
+const gen = infiniteNumbers();
+console.log(gen.next().value); // 0
+console.log(gen.next().value); // 1
+// This uses a generator to implement lazy evaluation of infinite values.

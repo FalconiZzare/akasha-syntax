@@ -1,0 +1,6 @@
+#include <stdio.h>
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+// Prints "Hello, World!" to the console. This is the most basic example in C.

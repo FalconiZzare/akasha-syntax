@@ -1,0 +1,8 @@
+<?php
+$data = array("name" => "John", "age" => 30);
+$json = json_encode($data);
+echo $json;
+$decoded = json_decode($json, true);
+echo "Name: " . $decoded["name"];
+?>
+This code converts a PHP array to JSON format using `json_encode`, and then decodes it back to an associative array using `json_decode`.

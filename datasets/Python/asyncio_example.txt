@@ -1,0 +1,8 @@
+import asyncio
+
+async def say_hello():
+    await asyncio.sleep(1)
+    print("Hello after 1 second")
+
+asyncio.run(say_hello())
+# This uses asyncio to run an asynchronous function that waits before printing.

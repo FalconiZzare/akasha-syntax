@@ -1,0 +1,15 @@
+<?php
+namespace MyApp;
+
+class User {
+    public function greet() {
+        return "Hello from MyApp!";
+    }
+}
+
+// In another file or block
+use MyApp\User;
+$user = new User();
+echo $user->greet();
+?>
+This code defines and uses a namespace, which helps in organizing and avoiding class name conflicts.

@@ -1,0 +1,19 @@
+function getUser() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve({ name: "Alice" }), 1000);
+    });
+}
+
+function getPosts(user) {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(["Post1", "Post2"]), 1000);
+    });
+}
+
+getUser()
+    .then(user => {
+        console.log("User:", user);
+        return getPosts(user);
+    })
+    .then(posts => console.log("Posts:", posts));
+// This chains promises to simulate fetching user data then related posts.

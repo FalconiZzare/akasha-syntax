@@ -1,0 +1,11 @@
+<?php
+// In a controller method
+public function store(Request $request) {
+    $validated = $request->validate([
+        'name' => 'required|max:255',
+        'email' => 'required|email|unique:users'
+    ]);
+    return 'Data validated successfully';
+}
+?>
+This demonstrates Laravel's built-in request validation. It ensures 'name' and 'email' meet specified rules.

@@ -1,0 +1,9 @@
+import click
+
+@click.command()
+@click.argument("name")
+def greet(name):
+    click.echo(f"Hello, {name}!")
+
+# Save as script.py and run with `python script.py Alice`
+# This uses Click to build a command-line interface that greets a user.

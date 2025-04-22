@@ -1,0 +1,16 @@
+const map = f => reducer => (acc, val) => reducer(acc, f(val));
+const filter = pred => reducer => (acc, val) => pred(val) ? reducer(acc, val) : acc;
+
+const transduce = (xform, reducer, init, arr) => {
+    const xf = xform(reducer);
+    return arr.reduce(xf, init);
+};
+
+const xf = compose(
+    map(x => x * 2),
+    filter(x => x > 4)
+);
+
+const result = transduce(xf, (acc, val) => [...acc, val], [], [1, 2, 3, 4]);
+console.log(result);
+// This demonstrates a transducer pattern combining map and filter efficiently.

@@ -1,0 +1,3 @@
+const add = (a, b) => a + b;
+console.log(add(2, 3));
+// This defines an arrow function to add two numbers.

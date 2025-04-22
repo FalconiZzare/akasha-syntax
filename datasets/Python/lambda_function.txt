@@ -1,0 +1,3 @@
+add = lambda x, y: x + y
+print(add(3, 5))
+# This defines an anonymous lambda function to add two numbers.

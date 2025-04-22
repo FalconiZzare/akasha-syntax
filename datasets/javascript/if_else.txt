@@ -1,0 +1,7 @@
+let score = 85;
+if (score > 90) {
+    console.log("Excellent");
+} else {
+    console.log("Good");
+}
+// This checks the value of score and prints a message accordingly.

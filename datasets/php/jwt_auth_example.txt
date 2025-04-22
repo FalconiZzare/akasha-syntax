@@ -1,0 +1,21 @@
+<?php
+require 'vendor/autoload.php';
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+$key = "your_secret_key";
+$payload = [
+    "iss" => "localhost",
+    "aud" => "localhost",
+    "iat" => time(),
+    "exp" => time() + 3600,
+    "user_id" => 123
+];
+
+$jwt = JWT::encode($payload, $key, 'HS256');
+echo "JWT: " . $jwt;
+
+$decoded = JWT::decode($jwt, new Key($key, 'HS256'));
+print_r($decoded);
+?>
+This demonstrates how to generate and decode a JWT in PHP using Firebase JWT library. It's useful for secure stateless authentication.

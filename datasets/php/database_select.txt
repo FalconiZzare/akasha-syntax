@@ -1,0 +1,9 @@
+<?php
+$conn = new mysqli("localhost", "root", "", "test_db");
+$result = $conn->query("SELECT * FROM users");
+while($row = $result->fetch_assoc()) {
+    echo "Name: " . $row["name"] . "\n";
+}
+$conn->close();
+?>
+This script retrieves all rows from a `users` table and prints the name of each user.

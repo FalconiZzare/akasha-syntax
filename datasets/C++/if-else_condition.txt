@@ -1,0 +1,9 @@
+ If-Else Condition
+int number = 10;
+if (number > 0) {
+    printf("Positive number\n");
+} else {
+    printf("Non-positive number\n");
+}
+This code checks if a number is greater than zero using an if-else statement. If the condition 'number > 0' is true, it prints 'Positive number'. Otherwise, it prints 'Non-positive number'.
+ conditions,if-else,control flow

@@ -1,0 +1,19 @@
+<?php
+class Logger {
+    private static $instance;
+
+    private function __construct() {}
+
+    public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new Logger();
+        }
+        return self::$instance;
+    }
+}
+
+$logger1 = Logger::getInstance();
+$logger2 = Logger::getInstance();
+echo $logger1 === $logger2 ? "Same instance" : "Different instances";
+?>
+This demonstrates the Singleton pattern, where only one instance of a class is created and reused.

@@ -1,0 +1,4 @@
+document.getElementById("btn").addEventListener("click", () => {
+    alert("Button clicked!");
+});
+// This adds a click event listener to a button with the ID 'btn'.

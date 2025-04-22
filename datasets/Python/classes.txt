@@ -1,0 +1,10 @@
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print("Hello, my name is " + self.name)
+
+p = Person("Alice")
+p.greet()
+# This creates a class with a method and demonstrates object-oriented programming.

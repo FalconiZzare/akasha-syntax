@@ -1,0 +1,9 @@
+#include <iostream>
+#include <new>
+int main() {
+    char buffer[sizeof(int)];
+    int* p = new (buffer) int(42);
+    std::cout << "Value using placement new: " << *p << std::endl;
+    return 0;
+}
+// Constructs an object in a pre-allocated buffer using placement new.

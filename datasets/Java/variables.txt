@@ -1,0 +1,9 @@
+public class Variables {
+    public static void main(String[] args) {
+        int number = 10;
+        double price = 19.99;
+        String name = "Alice";
+        System.out.println(name + " bought " + number + " items for $" + price);
+    }
+}
+// This demonstrates declaring and using different types of variables.

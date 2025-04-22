@@ -1,0 +1,3 @@
+const title = document.getElementById("title");
+title.textContent = "Updated Title";
+// This selects an HTML element by ID and changes its text content.

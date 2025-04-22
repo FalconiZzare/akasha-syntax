@@ -1,0 +1,10 @@
+import { compose, pipe } from 'ramda';
+
+const double = x => x * 2;
+const addOne = x => x + 1;
+
+const result1 = compose(double, addOne)(3); // 8
+const result2 = pipe(addOne, double)(3);    // 8
+
+console.log(result1, result2);
+// This uses Ramda's compose and pipe for function composition with better readability.

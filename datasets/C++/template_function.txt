@@ -1,0 +1,11 @@
+#include <iostream>
+template <typename T>
+T max(T a, T b) {
+    return (a > b) ? a : b;
+}
+int main() {
+    std::cout << max(3, 7) << std::endl;
+    std::cout << max(4.5, 2.1) << std::endl;
+    return 0;
+}
+// Uses templates to create a function that works with multiple data types.

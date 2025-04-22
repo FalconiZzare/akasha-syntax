@@ -1,0 +1,9 @@
+<?php
+// web.php (Laravel route file)
+use Illuminate\Support\Facades\Route;
+
+Route::get('/greet/{name}', function ($name) {
+    return "Hello, " . $name;
+});
+?>
+This is a simple Laravel route that responds to a GET request with a greeting message based on the name parameter.

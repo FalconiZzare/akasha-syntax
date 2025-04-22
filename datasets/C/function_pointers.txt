@@ -1,0 +1,8 @@
+#include <stdio.h>
+void greet() { printf("Hello!\n"); }
+void execute(void (*func)()) { func(); }
+int main() {
+    execute(greet);
+    return 0;
+}
+// Demonstrates how to use function pointers to pass functions as arguments.

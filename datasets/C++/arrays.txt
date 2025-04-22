@@ -1,0 +1,5 @@
+ Arrays
+int numbers[5] = {1, 2, 3, 4, 5};
+printf("First element: %d\n", numbers[0]);
+This code declares an array of integers and initializes it with five values. It then prints the first element using the index 0.
+ arrays

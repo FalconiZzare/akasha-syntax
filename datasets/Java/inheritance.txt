@@ -1,0 +1,19 @@
+class Animal {
+    void speak() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void speak() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Inheritance {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.speak();
+    }
+}
+// This shows basic inheritance and method overriding in Java.

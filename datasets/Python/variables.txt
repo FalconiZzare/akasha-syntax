@@ -1,0 +1,5 @@
+x = 5
+y = "Hello"
+print(x)
+print(y)
+# This code defines an integer and a string variable and prints them.

@@ -1,0 +1,9 @@
+#include <stdio.h>
+void greet() {
+    printf("Hello from function!\n");
+}
+int main() {
+    greet();
+    return 0;
+}
+// Defines and calls a simple function in C.

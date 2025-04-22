@@ -1,0 +1,6 @@
+<?php
+// header.php contains common header content
+include "header.php";
+echo "Welcome to the homepage!";
+?>
+This includes the contents of `header.php` into the current script, which is useful for reusing common layout or code.

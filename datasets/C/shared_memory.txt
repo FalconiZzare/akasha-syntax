@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+int main() {
+    int shmid = shmget(IPC_PRIVATE, 1024, IPC_CREAT | 0666);
+    char *str = (char*) shmat(shmid, NULL, 0);
+    sprintf(str, "Hello Shared Memory");
+    printf("%s\n", str);
+    shmdt(str);
+    shmctl(shmid, IPC_RMID, NULL);
+    return 0;
+}
+// Demonstrates inter-process communication using System V shared memory.

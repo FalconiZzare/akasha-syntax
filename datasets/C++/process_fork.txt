@@ -1,0 +1,17 @@
+#include <iostream>
+#include <unistd.h>
+int main() {
+    pid_t pid = fork();
+    if (pid == 0) {
+        std::cout << "Child process
+";
+    } else if (pid > 0) {
+        std::cout << "Parent process
+";
+    } else {
+        std::cerr << "Fork failed
+";
+    }
+    return 0;
+}
+// Demonstrates creating a new process using fork().

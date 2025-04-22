@@ -1,0 +1,10 @@
+#include <stdio.h>
+void compute(int x, int (*callback)(int)) {
+    printf("Result: %d\n", callback(x));
+}
+int square(int n) { return n * n; }
+int main() {
+    compute(5, square);
+    return 0;
+}
+// Uses a callback function to compute a result.

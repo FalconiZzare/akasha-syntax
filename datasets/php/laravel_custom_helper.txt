@@ -1,0 +1,15 @@
+<?php
+// app/helpers.php
+function greet($name) {
+    return "Hello, " . ucfirst($name);
+}
+
+// composer.json
+"autoload": {
+    "files": ["app/helpers.php"]
+}
+
+// Usage in Laravel app
+echo greet("bob");
+?>
+This shows how to create and autoload a global helper function in Laravel via Composer autoload settings.

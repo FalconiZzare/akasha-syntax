@@ -1,0 +1,9 @@
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello, Flask!"
+
+# To run: Save as app.py and run `flask run` in terminal
+# This creates a basic Flask web application with a single route.

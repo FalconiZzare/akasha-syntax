@@ -1,0 +1,8 @@
+<?php
+$conn = new mysqli("localhost", "root", "", "test_db");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?>
+This establishes a connection to a MySQL database using MySQLi. It checks for connection errors and confirms if the connection was successful.

@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main() {
+    FILE* f = fopen("data.bin", "wb");
+    int a = 12345;
+    fwrite(&a, sizeof(a), 1, f);
+    fclose(f);
+    
+    f = fopen("data.bin", "rb");
+    int b;
+    fread(&b, sizeof(b), 1, f);
+    printf("Read: %d\n", b);
+    fclose(f);
+    return 0;
+}
+// Writes and reads an integer to/from a binary file.

@@ -1,0 +1,17 @@
+<?php
+class Animal {
+    public function makeSound() {
+        echo "Some generic sound\n";
+    }
+}
+
+class Dog extends Animal {
+    public function makeSound() {
+        echo "Bark!\n";
+    }
+}
+
+$dog = new Dog();
+$dog->makeSound();
+?>
+This code demonstrates inheritance. The `Dog` class inherits from `Animal` and overrides the `makeSound` method.

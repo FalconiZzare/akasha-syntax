@@ -1,0 +1,38 @@
+// Model
+public class User {
+    private String name;
+    public User(String name) { this.name = name; }
+    public String getName() { return name; }
+}
+
+// View
+public class UserView {
+    public void printUserDetails(String userName) {
+        System.out.println("User: " + userName);
+    }
+}
+
+// Controller
+public class UserController {
+    private User model;
+    private UserView view;
+
+    public UserController(User model, UserView view) {
+        this.model = model;
+        this.view = view;
+    }
+
+    public void updateView() {
+        view.printUserDetails(model.getName());
+    }
+}
+
+public class MVCDemo {
+    public static void main(String[] args) {
+        User model = new User("John");
+        UserView view = new UserView();
+        UserController controller = new UserController(model, view);
+        controller.updateView();
+    }
+}
+// This is a simple example of the MVC (Model-View-Controller) pattern in Java.

@@ -1,0 +1,12 @@
+<?php
+// A basic REST API using plain PHP
+header("Content-Type: application/json");
+
+$data = [
+    ["id" => 1, "name" => "Apple"],
+    ["id" => 2, "name" => "Banana"]
+];
+
+echo json_encode($data);
+?>
+This is a simple PHP script that simulates a RESTful API returning JSON data.

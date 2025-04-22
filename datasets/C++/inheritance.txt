@@ -1,0 +1,20 @@
+#include <iostream>
+class Animal {
+public:
+    void speak() {
+        std::cout << "Animal sound" << std::endl;
+    }
+};
+class Dog : public Animal {
+public:
+    void bark() {
+        std::cout << "Woof!" << std::endl;
+    }
+};
+int main() {
+    Dog myDog;
+    myDog.speak();
+    myDog.bark();
+    return 0;
+}
+// Shows single inheritance in C++ and method access from both base and derived classes.

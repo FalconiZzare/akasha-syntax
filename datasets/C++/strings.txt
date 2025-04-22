@@ -1,0 +1,5 @@
+Strings
+char name[] = "Alice";
+printf("Hello %s\n", name);
+Defines a string as a character array. 'printf' with '%s' is used to print the string.
+strings

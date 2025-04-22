@@ -1,0 +1,27 @@
+# composer.json
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
+
+# src/Utils/Helper.php
+<?php
+namespace App\Utils;
+
+class Helper {
+    public static function greet($name) {
+        return "Hello, " . $name;
+    }
+}
+
+# index.php
+<?php
+require 'vendor/autoload.php';
+use App\Utils\Helper;
+
+echo Helper::greet("Alice");
+?>
+This setup demonstrates PSR-4 autoloading with Composer. It allows structured class loading based on namespace and folder structure.

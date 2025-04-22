@@ -1,0 +1,7 @@
+#include <stdio.h>
+int main() {
+    int x;
+    printf("Size of int: %zu bytes\n", sizeof(x));
+    return 0;
+}
+// Uses the sizeof operator to find the memory size of a type.

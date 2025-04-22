@@ -1,0 +1,10 @@
+#include <iostream>
+int main() {
+    try {
+        throw std::runtime_error("Something went wrong!");
+    } catch (const std::exception& e) {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
+    return 0;
+}
+// Shows basic exception handling with try-catch blocks.

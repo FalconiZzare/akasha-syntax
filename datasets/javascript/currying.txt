@@ -1,0 +1,8 @@
+function multiply(a) {
+    return function(b) {
+        return a * b;
+    };
+}
+const triple = multiply(3);
+console.log(triple(4));
+// This shows function currying by returning functions that take one argument at a time.

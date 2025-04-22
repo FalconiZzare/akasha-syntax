@@ -1,0 +1,9 @@
+<?php
+// routes/api.php
+use Illuminate\Support\Facades\Route;
+
+Route::middleware('throttle:60,1')->get('/data', function () {
+    return ['data' => 'API content'];
+});
+?>
+This example enables rate limiting in Laravel (60 requests per minute) using the `throttle` middleware.

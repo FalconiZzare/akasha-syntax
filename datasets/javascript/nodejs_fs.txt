@@ -1,0 +1,4 @@
+const fs = require('fs');
+fs.writeFileSync('example.txt', 'Hello from Node.js');
+console.log("File written!");
+// This uses Node.js's fs module to write to a file synchronously.

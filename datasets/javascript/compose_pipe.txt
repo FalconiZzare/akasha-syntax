@@ -1,0 +1,8 @@
+const compose = (f, g) => x => f(g(x));
+
+const add1 = x => x + 1;
+const square = x => x * x;
+
+const addThenSquare = compose(square, add1);
+console.log(addThenSquare(2));
+// This demonstrates function composition where output of one function is input to another.

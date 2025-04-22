@@ -1,0 +1,5 @@
+# Dockerfile to containerize a Java application
+FROM openjdk:17
+COPY MyApp.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+// This Dockerfile builds a container for a Java app packaged as a JAR file.

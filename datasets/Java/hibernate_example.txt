@@ -1,0 +1,41 @@
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    private String name;
+    private int age;
+
+    // Getters and Setters
+}
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateDemo {
+    public static void main(String[] args) {
+        SessionFactory factory = new Configuration()
+                                    .configure("hibernate.cfg.xml")
+                                    .addAnnotatedClass(User.class)
+                                    .buildSessionFactory();
+        Session session = factory.getCurrentSession();
+
+        try {
+            User newUser = new User();
+            newUser.setName("Alice");
+            newUser.setAge(25);
+
+            session.beginTransaction();
+            session.save(newUser);
+            session.getTransaction().commit();
+        } finally {
+            factory.close();
+        }
+    }
+}
+// This example demonstrates basic Hibernate ORM functionality to save a user to a database.

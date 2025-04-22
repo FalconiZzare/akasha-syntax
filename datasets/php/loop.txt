@@ -1,0 +1,6 @@
+<?php
+for ($i = 1; $i <= 5; $i++) {
+    echo "Number: $i\n";
+}
+?>
+This script uses a `for` loop to iterate from 1 to 5, printing each number. The `\n` is used to add a new line character.

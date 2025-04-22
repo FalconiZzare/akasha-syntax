@@ -1,0 +1,17 @@
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CalculatorTest {
+
+    @Test
+    public void testAddition() {
+        assertEquals(5, 2 + 3);
+    }
+
+    @Test
+    public void testMultiplication() {
+        assertEquals(6, 2 * 3);
+    }
+}
+// This uses JUnit 5 to test simple arithmetic operations.

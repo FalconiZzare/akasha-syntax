@@ -1,0 +1,9 @@
+Sum of Digits
+int num = 1234, sum = 0;
+while(num != 0) {
+    sum += num % 10;
+    num /= 10;
+}
+printf("Sum of digits: %d", sum);
+Extracts each digit from the number using modulus operator and adds them to get the total sum.
+math,loops

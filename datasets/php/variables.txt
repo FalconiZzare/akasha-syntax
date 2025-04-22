@@ -1,0 +1,6 @@
+<?php
+$name = "Alice";
+$age = 25;
+echo "Name: $name, Age: $age";
+?>
+This script defines two variables: `$name` and `$age`. PHP variables start with a dollar sign, and variable interpolation is supported inside double-quoted strings.

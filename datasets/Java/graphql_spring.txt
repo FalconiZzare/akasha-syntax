@@ -1,0 +1,14 @@
+// build.gradle dependency snippet
+// implementation 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class GraphQLController {
+    @RequestMapping("/graphql")
+    public String queryExample() {
+        return "query { bookById(id: "1") { title author } }";
+    }
+}
+// This is a basic GraphQL endpoint controller setup using Spring Boot.

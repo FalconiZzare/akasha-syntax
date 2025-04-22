@@ -1,0 +1,7 @@
+async function getData() {
+    let response = await fetch("https://api.github.com");
+    let data = await response.json();
+    console.log(data);
+}
+getData();
+// This defines an async function to fetch and log API data.

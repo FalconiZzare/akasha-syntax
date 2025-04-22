@@ -1,0 +1,11 @@
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    greet() {
+        return `Hello, my name is ${this.name}`;
+    }
+}
+const alice = new Person("Alice");
+console.log(alice.greet());
+// This defines a class with a constructor and method, then instantiates and uses it.

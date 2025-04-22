@@ -1,0 +1,4 @@
+person = {"name": "Alice", "age": 25}
+print(person["name"])
+print(person["age"])
+# This defines a dictionary and prints the values associated with each key.

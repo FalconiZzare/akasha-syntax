@@ -1,0 +1,3 @@
+let fruits = ["apple", "banana", "cherry"];
+fruits.forEach(fruit => console.log(fruit));
+// This defines an array and iterates through each item using forEach.

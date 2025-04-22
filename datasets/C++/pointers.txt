@@ -1,0 +1,6 @@
+Pointers
+int x = 10;
+int* p = &x;
+printf("Value of x: %d\n", *p);
+'p' is a pointer to the integer variable 'x'. '&x' gets the memory address of 'x'. '*p' dereferences the pointer to access the value stored at that address, which is 10.
+ pointers,memory

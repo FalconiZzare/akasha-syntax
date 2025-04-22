@@ -1,0 +1,10 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello from FastAPI"}
+
+# To run: Save as main.py and use `uvicorn main:app --reload`
+# This sets up a basic FastAPI app with one GET endpoint.

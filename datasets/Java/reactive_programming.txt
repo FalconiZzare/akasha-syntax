@@ -1,0 +1,11 @@
+import reactor.core.publisher.Flux;
+
+public class ReactiveExample {
+    public static void main(String[] args) {
+        Flux.just("One", "Two", "Three")
+            .map(String::toUpperCase)
+            .filter(s -> s.startsWith("T"))
+            .subscribe(System.out::println);
+    }
+}
+// This uses Project Reactor to handle data reactively with Flux.

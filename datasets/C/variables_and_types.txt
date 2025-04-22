@@ -1,0 +1,9 @@
+#include <stdio.h>
+int main() {
+    int a = 5;
+    float b = 3.2;
+    char c = 'A';
+    printf("a = %d, b = %.1f, c = %c\n", a, b, c);
+    return 0;
+}
+// Demonstrates variable declaration and usage of basic data types.

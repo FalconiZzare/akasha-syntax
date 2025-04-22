@@ -1,0 +1,8 @@
+While Loop
+int i = 0;
+while (i < 5) {
+    printf("%d\n", i);
+    i++;
+}
+ This while loop continues to execute as long as 'i' is less than 5. It prints the value of 'i' and then increments it by 1.
+ loops,while

@@ -1,0 +1,14 @@
+import * as R from 'ramda';
+
+const sanitizeInput = str => str.trim().toLowerCase();
+const validate = str => str.includes('@') ? str : null;
+const logResult = R.tap(console.log);
+
+const processInput = R.pipe(
+    sanitizeInput,
+    validate,
+    logResult
+);
+
+processInput("  USER@Example.com  ");
+// This shows a real-world functional flow using pipe and tap for logging.

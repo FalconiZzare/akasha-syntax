@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <unistd.h>
+int main() {
+    int fd[2];
+    pipe(fd);
+    if (fork() == 0) {
+        close(fd[0]);
+        write(fd[1], "Hi", 2);
+    } else {
+        char buffer[3] = {0};
+        close(fd[1]);
+        read(fd[0], buffer, 2);
+        printf("Received: %s\n", buffer);
+    }
+    return 0;
+}
+// Creates a pipe between a parent and child process for communication.

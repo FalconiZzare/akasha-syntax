@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <unistd.h>
+#define BLOCK_SIZE 4096
+void* simple_malloc(size_t size) {
+    void* ptr = sbrk(size);
+    return ptr;
+}
+int main() {
+    int *a = (int*) simple_malloc(sizeof(int) * 10);
+    for (int i = 0; i < 10; i++) a[i] = i;
+    for (int i = 0; i < 10; i++) printf("%d ", a[i]);
+    printf("\n");
+    return 0;
+}
+// Implements a naive malloc using sbrk to allocate memory from the heap.

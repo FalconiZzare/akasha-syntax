@@ -1,0 +1,9 @@
+# Run this in terminal
+composer init
+composer require firebase/php-jwt
+
+# PHP script to load dependencies
+<?php
+require 'vendor/autoload.php';
+?>
+This shows how to initialize Composer, install a package, and autoload dependencies using `vendor/autoload.php`.

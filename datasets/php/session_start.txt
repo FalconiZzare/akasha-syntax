@@ -1,0 +1,6 @@
+<?php
+session_start();
+$_SESSION["user"] = "Alice";
+echo "Session started for " . $_SESSION["user"];
+?>
+This starts a session and stores a value in the session variable `$_SESSION`.

@@ -1,0 +1,5 @@
+import requests
+response = requests.get("https://api.github.com")
+print(response.status_code)
+print(response.json())
+# This uses the requests library to make a GET request to the GitHub API and print the JSON response.

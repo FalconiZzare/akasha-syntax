@@ -1,0 +1,11 @@
+#include <iostream>
+class Test {
+public:
+    Test() { std::cout << "Constructor called" << std::endl; }
+    ~Test() { std::cout << "Destructor called" << std::endl; }
+};
+int main() {
+    Test obj;
+    return 0;
+}
+// Shows how constructors and destructors work in object lifecycle.

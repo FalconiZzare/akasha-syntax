@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+char device_buffer[1024];
+int main() {
+    strcpy(device_buffer, "Device data example");
+    printf("Reading device: %s\n", device_buffer);
+    strcpy(device_buffer, "New device data");
+    printf("Writing to device: %s\n", device_buffer);
+    return 0;
+}
+// Simulates a basic character device with read and write operations.

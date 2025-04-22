@@ -1,0 +1,8 @@
+import json
+data = {"name": "Alice", "age": 25}
+json_str = json.dumps(data)
+print(json_str)
+
+parsed = json.loads(json_str)
+print(parsed["name"])
+# This demonstrates serializing and deserializing a dictionary using JSON.

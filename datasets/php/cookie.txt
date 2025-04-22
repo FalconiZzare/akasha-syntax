@@ -1,0 +1,5 @@
+<?php
+setcookie("username", "Bob", time() + 3600);
+echo "Cookie set!";
+?>
+This sets a cookie named "username" with the value "Bob" that expires in 1 hour.

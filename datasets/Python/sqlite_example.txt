@@ -1,0 +1,14 @@
+import sqlite3
+
+conn = sqlite3.connect('example.db')
+c = conn.cursor()
+
+c.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)''')
+c.execute("INSERT INTO users (name) VALUES ('Alice')")
+conn.commit()
+
+c.execute("SELECT * FROM users")
+print(c.fetchall())
+
+conn.close()
+# This demonstrates creating a SQLite database, inserting a row, and querying data.

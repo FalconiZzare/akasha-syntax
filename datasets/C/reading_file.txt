@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    FILE* file = fopen("example.txt", "r");
+    char buffer[100];
+    if (file) {
+        while (fgets(buffer, sizeof(buffer), file)) {
+            printf("%s", buffer);
+        }
+        fclose(file);
+    }
+    return 0;
+}
+// Reads content from a file and prints it line by line.

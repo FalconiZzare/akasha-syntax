@@ -1,0 +1,6 @@
+ Variables and Data Types
+int age = 25;
+float height = 5.9;
+char grade = 'A';
+This code demonstrates how to declare variables of different data types in C. 'int' is used for integers, 'float' for decimal numbers, and 'char' for single characters. Each variable is assigned an initial value.
+ variables,data types,basics

@@ -1,0 +1,13 @@
+public class MultiThreadingExample extends Thread {
+    public void run() {
+        System.out.println("Thread running: " + Thread.currentThread().getName());
+    }
+
+    public static void main(String[] args) {
+        MultiThreadingExample t1 = new MultiThreadingExample();
+        MultiThreadingExample t2 = new MultiThreadingExample();
+        t1.start();
+        t2.start();
+    }
+}
+// This shows how to create and run multiple threads using Thread class.
